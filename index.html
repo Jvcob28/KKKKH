@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Daily Task Planner Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="light-theme">
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1>📅 Daily Task Planner</h1>
+                <div class="header-buttons">
+                    <button id="theme-toggle" class="icon-btn" title="Сменить тему">🌙</button>
+                    <button id="menu-toggle" class="icon-btn mobile-only" title="Меню">☰</button>
+                </div>
+            </div>
+            <p>Организуй свой день эффективно</p>
+        </header>
+
+        <div class="mobile-menu hidden">
+            <button class="day-tab active" data-day="all">Все дни</button>
+            <button class="day-tab" data-day="monday">Пн</button>
+            <button class="day-tab" data-day="tuesday">Вт</button>
+            <button class="day-tab" data-day="wednesday">Ср</button>
+            <button class="day-tab" data-day="thursday">Чт</button>
+            <button class="day-tab" data-day="friday">Пт</button>
+            <button class="day-tab" data-day="saturday">Сб</button>
+            <button class="day-tab" data-day="sunday">Вс</button>
+        </div>
+
+        <div class="task-input">
+            <input type="text" id="new-task" placeholder="Новая задача...">
+            <div class="select-wrapper">
+                <select id="task-category">
+                    <option value="general">Общее</option>
+                    <option value="work">Работа</option>
+                    <option value="study">Учёба</option>
+                    <option value="sport">Спорт</option>
+                    <option value="personal">Личное</option>
+                </select>
+            </div>
+            <div class="select-wrapper">
+                <select id="task-priority">
+                    <option value="low">🟢 Низкий</option>
+                    <option value="medium">🟡 Средний</option>
+                    <option value="high">🔴 Высокий</option>
+                </select>
+            </div>
+            <input type="datetime-local" id="task-deadline">
+            <button id="add-task-btn" class="icon-btn" title="Добавить"><i class="fas fa-plus"></i></button>
+        </div>
+
+        <div class="controls">
+            <div class="days-tabs desktop-only">
+                <button class="day-tab active" data-day="all">Все дни</button>
+                <button class="day-tab" data-day="monday">Понедельник</button>
+                <button class="day-tab" data-day="tuesday">Вторник</button>
+                <button class="day-tab" data-day="wednesday">Среда</button>
+                <button class="day-tab" data-day="thursday">Четверг</button>
+                <button class="day-tab" data-day="friday">Пятница</button>
+                <button class="day-tab" data-day="saturday">Суббота</button>
+                <button class="day-tab" data-day="sunday">Воскресенье</button>
+            </div>
+            <div class="view-toggle">
+                <button id="show-stats-btn" class="stats-btn">📊 Статистика</button>
+            </div>
+        </div>
+
+        <div class="task-list">
+            <ul id="tasks-container">
+                <!-- Задачи будут здесь -->
+            </ul>
+        </div>
+
+        <div class="stats-container hidden">
+            <h2>📊 Ваша статистика</h2>
+            <div class="charts">
+                <div class="chart-container">
+                    <canvas id="completion-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="priority-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="category-chart"></canvas>
+                </div>
+            </div>
+            <button id="hide-stats-btn" class="back-btn">⬅️ Назад к задачам</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

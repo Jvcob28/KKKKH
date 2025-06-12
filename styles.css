@@ -1,0 +1,618 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+/* Поле ввода задачи */
+.task-input {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.task-input input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.task-input input:focus {
+    border-color: #3498db;
+}
+
+.task-input button {
+    padding: 12px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.task-input button:hover {
+    background: #2980b9;
+}
+
+/* Вкладки дней недели */
+.days-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.day-tab {
+    padding: 8px 15px;
+    background: #ecf0f1;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.day-tab:hover {
+    background: #bdc3c7;
+}
+
+.day-tab.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Список задач */
+.task-list ul {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.task-item:hover {
+    background: #f0f0f0;
+}
+
+.task-item.completed {
+    opacity: 0.7;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+
+.task-text {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #7f8c8d;
+    transition: color 0.3s;
+}
+
+.task-actions button:hover {
+    color: #3498db;
+}
+
+.task-day {
+    font-size: 0.8rem;
+    background: #e0e0e0;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: #555;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .days-tabs {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+}
+
+:root {
+    /* Light Theme */
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --container-bg: #fff;
+    --task-bg: #f9f9f9;
+    --task-hover: #f0f0f0;
+    --border-color: #ddd;
+    --primary: #3498db;
+    --primary-hover: #2980b9;
+    --secondary: #ecf0f1;
+    --secondary-hover: #bdc3c7;
+    --completed-text: #95a5a6;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+    /* Dark Theme */
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --container-bg: #2d2d2d;
+    --task-bg: #3d3d3d;
+    --task-hover: #4d4d4d;
+    --border-color: #555;
+    --primary: #2980b9;
+    --primary-hover: #3498db;
+    --secondary: #555;
+    --secondary-hover: #666;
+    --completed-text: #777;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+    background: var(--container-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+/* Мобильное меню */
+.mobile-menu {
+    display: none;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: var(--secondary);
+    border-radius: 8px;
+}
+
+.mobile-menu button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+}
+
+.mobile-menu.hidden {
+    display: none;
+}
+
+/* Шапка */
+header {
+    margin-bottom: 15px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Кнопки */
+.icon-btn {
+    padding: 8px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: var(--secondary-hover);
+}
+
+.stats-btn, .back-btn {
+    padding: 8px 15px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.stats-btn:hover, .back-btn:hover {
+    background: var(--secondary-hover);
+}
+
+/* Поле ввода задачи */
+.task-input {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto;
+    gap: 8px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.task-input input, 
+.task-input select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background: var(--container-bg);
+    color: var(--text-color);
+    min-width: 0;
+}
+
+.task-input input:focus,
+.task-input select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.task-input input[type="datetime-local"] {
+    min-width: 120px;
+}
+
+.select-wrapper {
+    position: relative;
+    min-width: 60px;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 0.6rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Вкладки и управление */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.days-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.day-tab {
+    padding: 6px 12px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.day-tab:hover {
+    background: var(--secondary-hover);
+}
+
+.day-tab.active {
+    background: var(--primary);
+    color: white;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 5px;
+}
+
+/* Список задач */
+.task-list ul {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px;
+    background: var(--task-bg);
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 4px solid #ccc;
+    gap: 8px;
+}
+
+.task-item:hover {
+    background: var(--task-hover);
+}
+
+.task-item.completed {
+    opacity: 0.7;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--completed-text);
+}
+
+/* Приоритеты */
+.task-item.priority-high {
+    border-left-color: #e74c3c;
+}
+.task-item.priority-medium {
+    border-left-color: #f39c12;
+}
+.task-item.priority-low {
+    border-left-color: #2ecc71;
+}
+
+.task-checkbox {
+    margin-right: 5px;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 120px;
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.task-category, 
+.task-deadline,
+.task-priority {
+    padding: 3px 6px;
+    border-radius: 8px;
+    background: var(--secondary);
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
+.task-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.task-actions button:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.1);
+}
+
+/* Статистика */
+.stats-container {
+    margin-top: 15px;
+}
+
+.stats-container.hidden {
+    display: none;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.chart-container {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+/* Адаптивные классы */
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: flex;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: flex;
+    }
+    
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: flex;
+    }
+    
+    .task-input {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+            "input input"
+            "category priority"
+            "deadline add";
+    }
+    
+    #new-task {
+        grid-area: input;
+    }
+    
+    #task-category {
+        grid-area: category;
+    }
+    
+    #task-priority {
+        grid-area: priority;
+    }
+    
+    #task-deadline {
+        grid-area: deadline;
+        min-width: auto;
+    }
+    
+    #add-task-btn {
+        grid-area: add;
+    }
+    
+    .task-item {
+        padding: 10px;
+    }
+    
+    .task-text {
+        order: 1;
+        flex: 1 1 100%;
+        margin: 5px 0;
+    }
+    
+    .task-meta {
+        order: 2;
+    }
+    
+    .task-actions {
+        order: 3;
+        margin-left: 0;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .task-input {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "input"
+            "category"
+            "priority"
+            "deadline"
+            "add";
+    }
+    
+    .task-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+}
